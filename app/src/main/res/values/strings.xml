@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Screen Lock Button</string>
+    <string name="device_admin_description">Allows this app to lock your screen when you tap the floating button.</string>
+</resources>

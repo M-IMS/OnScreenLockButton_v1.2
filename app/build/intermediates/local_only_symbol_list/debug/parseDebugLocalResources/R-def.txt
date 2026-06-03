@@ -1,0 +1,21 @@
+R_DEF: Internal format may change without notice
+local
+color cyan
+color dark_navy
+drawable app_icon
+id btnAccessibility
+id btnAdmin
+id btnOverlay
+id btnToggle
+id seekSize
+id seekTransparency
+id spinnerIcon
+id tvStatus
+layout activity_main
+layout spinner_item
+mipmap ic_launcher
+string app_name
+string device_admin_description
+style AppTheme
+xml accessibility_service_config
+xml device_admin

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="cyan">#00D4FF</color>
+    <color name="dark_navy">#0F0F1A</color>
+    <string name="app_name">Screen Lock Button</string>
+    <string name="device_admin_description">Allows this app to lock your screen when you tap the floating button.</string>
+    <style name="AppTheme" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:colorPrimary">#00D4FF</item>
+        <item name="android:colorPrimaryDark">#0F0F1A</item>
+        <item name="android:colorAccent">#00D4FF</item>
+    </style>
+</resources>

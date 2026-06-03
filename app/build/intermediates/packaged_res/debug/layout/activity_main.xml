@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#0F0F1A"
+    android:gravity="center">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="⏻"
+        android:textSize="56sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Screen Lock Button"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="6dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Floating power button for Samsung Note 9"
+        android:textSize="14sp"
+        android:textColor="#8899AA"
+        android:gravity="center"
+        android:layout_marginBottom="40dp" />
+
+    <!-- Status -->
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="○ Floating button is INACTIVE"
+        android:textSize="16sp"
+        android:textColor="#00D4FF"
+        android:layout_marginBottom="32dp" />
+
+    <!-- Step 1: Overlay Permission -->
+    <Button
+        android:id="@+id/btnOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="1. Grant Overlay Permission"
+        android:backgroundTint="#1A2040"
+        android:textColor="#00D4FF"
+        android:textSize="15sp"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Step 2: Device Admin -->
+    <Button
+        android:id="@+id/btnAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="2. Grant Device Admin"
+        android:backgroundTint="#1A2040"
+        android:textColor="#00D4FF"
+        android:textSize="15sp"
+        android:layout_marginBottom="32dp" />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#222244"
+        android:layout_marginBottom="32dp" />
+
+    <!-- Main toggle -->
+    <Button
+        android:id="@+id/btnToggle"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="START Floating Button"
+        android:backgroundTint="#00D4FF"
+        android:textColor="#0F0F1A"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:enabled="false" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="The button floats on screen and can be dragged anywhere. Tap it once to lock your screen."
+        android:textSize="12sp"
+        android:textColor="#445566"
+        android:gravity="center"
+        android:layout_marginTop="24dp" />
+
+</LinearLayout>

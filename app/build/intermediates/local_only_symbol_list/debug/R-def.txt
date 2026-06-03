@@ -1,0 +1,14 @@
+R_DEF: Internal format may change without notice
+local
+color cyan
+color dark_navy
+id btnAdmin
+id btnOverlay
+id btnToggle
+id tvStatus
+layout activity_main
+mipmap ic_launcher
+string app_name
+string device_admin_description
+style AppTheme
+xml device_admin

@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "/home/ims/.gradle/daemon/9.4.1/com.screenlock.floatbutton.app-debug-20:/drawable_app_icon.png.flat",
+        "source": "/home/ims/.gradle/daemon/9.4.1/com.screenlock.floatbutton.app-main-22:/drawable/app_icon.png"
+    },
+    {
+        "merged": "/home/ims/.gradle/daemon/9.4.1/com.screenlock.floatbutton.app-debug-20:/xml_device_admin.xml.flat",
+        "source": "/home/ims/.gradle/daemon/9.4.1/com.screenlock.floatbutton.app-main-22:/xml/device_admin.xml"
+    },
+    {
+        "merged": "/home/ims/.gradle/daemon/9.4.1/com.screenlock.floatbutton.app-debug-20:/layout_activity_main.xml.flat",
+        "source": "/home/ims/.gradle/daemon/9.4.1/com.screenlock.floatbutton.app-main-22:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/ims/.gradle/daemon/9.4.1/com.screenlock.floatbutton.app-debug-20:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/home/ims/.gradle/daemon/9.4.1/com.screenlock.floatbutton.app-main-22:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/ims/.gradle/daemon/9.4.1/com.screenlock.floatbutton.app-debug-20:/layout_spinner_item.xml.flat",
+        "source": "/home/ims/.gradle/daemon/9.4.1/com.screenlock.floatbutton.app-main-22:/layout/spinner_item.xml"
+    },
+    {
+        "merged": "com.screenlock.floatbutton.app-debug-20:/layout_spinner_item.xml.flat",
+        "source": "com.screenlock.floatbutton.app-main-22:/layout/spinner_item.xml"
+    },
+    {
+        "merged": "/home/ims/.gradle/daemon/9.4.1/com.screenlock.floatbutton.app-debug-20:/xml_accessibility_service_config.xml.flat",
+        "source": "/home/ims/.gradle/daemon/9.4.1/com.screenlock.floatbutton.app-main-22:/xml/accessibility_service_config.xml"
+    }
+]

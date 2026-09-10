@@ -11,20 +11,28 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.IBinder;
+import android.os.VibrationEffect;
 import android.os.Vibrator;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.ImageButton;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.content.SharedPreferences;
 import android.content.BroadcastReceiver;
 import android.content.IntentFilter;
+import android.content.pm.ServiceInfo;
+import android.net.Uri;
 
 import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
 
 public class FloatingButtonService extends Service {
 
@@ -55,13 +63,13 @@ public class FloatingButtonService extends Service {
         adminComponent = new ComponentName(this, AdminReceiver.class);
 
         createNotificationChannel();
-        startForeground(NOTIFICATION_ID, buildNotification());
-        createFloatingButton();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            registerReceiver(updateReceiver, new IntentFilter("UPDATE_FLOAT_BUTTON"), Context.RECEIVER_NOT_EXPORTED);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            startForeground(NOTIFICATION_ID, buildNotification(), ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE);
         } else {
-            registerReceiver(updateReceiver, new IntentFilter("UPDATE_FLOAT_BUTTON"));
+            startForeground(NOTIFICATION_ID, buildNotification());
         }
+        createFloatingButton();
+        ContextCompat.registerReceiver(this, updateReceiver, new IntentFilter("UPDATE_FLOAT_BUTTON"), ContextCompat.RECEIVER_NOT_EXPORTED);
     }
 
     private void createFloatingButton() {
@@ -70,12 +78,7 @@ public class FloatingButtonService extends Service {
         // Create the floating button view
         floatingView = createButtonView();
 
-        int layoutFlag;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            layoutFlag = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
-        } else {
-            layoutFlag = WindowManager.LayoutParams.TYPE_PHONE;
-        }
+        int layoutFlag = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
 
         params = new WindowManager.LayoutParams(
                 getButtonSize(),
@@ -97,38 +100,70 @@ public class FloatingButtonService extends Service {
 
     private View createButtonView() {
         // Build a circular button programmatically
-        android.widget.FrameLayout frame = new android.widget.FrameLayout(this);
+        FrameLayout frame = new FrameLayout(this);
 
         int size = getButtonSize();
 
         // Outer circle (button body)
         View circle = new View(this);
-        android.widget.FrameLayout.LayoutParams circleParams =
-                new android.widget.FrameLayout.LayoutParams(size, size);
+        circle.setTag("circle_body");
+        FrameLayout.LayoutParams circleParams =
+                new FrameLayout.LayoutParams(size, size);
         circleParams.gravity = Gravity.CENTER;
 
         // Use a GradientDrawable for the circle shape
-        android.graphics.drawable.GradientDrawable gd = new android.graphics.drawable.GradientDrawable();
-        gd.setShape(android.graphics.drawable.GradientDrawable.OVAL);
-        gd.setColor(0xCC1A1A2E);         // dark navy, semi-transparent
-        gd.setStroke(4, 0xCC36365F);    // cyan border
+        GradientDrawable gd = new GradientDrawable();
+        gd.setShape(GradientDrawable.OVAL);
+        
+        SharedPreferences prefs = getSharedPreferences("float_settings", MODE_PRIVATE);
+        String colorHex = prefs.getString("color", "#00D4FF");
+        int baseColor = Color.parseColor(colorHex);
+        int colorWithAlpha = (baseColor & 0x00FFFFFF) | 0xCC000000;
+        
+        gd.setColor(colorWithAlpha);
+        gd.setStroke(4, Color.WHITE & 0x80FFFFFF); // semi-transparent white border
         circle.setBackground(gd);
         circle.setLayoutParams(circleParams);
 
-        // Power icon label
-        android.widget.TextView icon = new android.widget.TextView(this);
-        icon.setText(getSharedPreferences("float_settings", MODE_PRIVATE).getString("icon","o"));
-        icon.setTextSize(android.util.TypedValue.COMPLEX_UNIT_PX, size / 2f);
-        icon.setTextColor(Color.WHITE);
-        icon.setGravity(Gravity.CENTER);
-        android.widget.FrameLayout.LayoutParams iconParams =
-                new android.widget.FrameLayout.LayoutParams(
-                        android.widget.FrameLayout.LayoutParams.MATCH_PARENT,
-                        android.widget.FrameLayout.LayoutParams.MATCH_PARENT);
-        icon.setLayoutParams(iconParams);
+        String customIconUri = prefs.getString("custom_icon_uri", null);
+        String iconText = prefs.getString("icon", "⬤");
+
+        View iconView;
+        if ("CUSTOM".equals(iconText) && customIconUri != null) {
+            ImageView img = new ImageView(this);
+            try {
+                Uri uri = Uri.parse(customIconUri);
+                img.setImageURI(uri);
+                img.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                int padding = size / 4;
+                img.setPadding(padding, padding, padding, padding);
+                iconView = img;
+            } catch (Exception e) {
+                // Fallback to text if image fails
+                TextView tv = new TextView(this);
+                tv.setText("⬤");
+                tv.setTextColor(Color.WHITE);
+                tv.setGravity(Gravity.CENTER);
+                tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, size / 2f);
+                iconView = tv;
+            }
+        } else {
+            TextView tv = new TextView(this);
+            tv.setText(iconText);
+            tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, size / 2f);
+            tv.setTextColor(Color.WHITE);
+            tv.setGravity(Gravity.CENTER);
+            iconView = tv;
+        }
+
+        FrameLayout.LayoutParams iconParams =
+                new FrameLayout.LayoutParams(
+                        FrameLayout.LayoutParams.MATCH_PARENT,
+                        FrameLayout.LayoutParams.MATCH_PARENT);
+        iconView.setLayoutParams(iconParams);
 
         frame.addView(circle);
-        frame.addView(icon);
+        frame.addView(iconView);
         frame.setAlpha(getButtonAlpha());
         return frame;
     }
@@ -178,6 +213,7 @@ private final BroadcastReceiver updateReceiver = new BroadcastReceiver() {
                 case MotionEvent.ACTION_UP:
                     long touchDuration = System.currentTimeMillis() - touchStartTime;
                     if (!isDragging && touchDuration < 400) {
+                        v.performClick();
                         // It's a tap — lock the screen!
                         lockScreen();
                     } else if (isDragging) {
@@ -197,12 +233,8 @@ private final BroadcastReceiver updateReceiver = new BroadcastReceiver() {
         // Vibrate briefly for feedback
         Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         if (vibrator != null && vibrator.hasVibrator()) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                vibrator.vibrate(android.os.VibrationEffect.createOneShot(
-                        80, android.os.VibrationEffect.DEFAULT_AMPLITUDE));
-            } else {
-                vibrator.vibrate(80);
-            }
+            vibrator.vibrate(VibrationEffect.createOneShot(
+                    80, VibrationEffect.DEFAULT_AMPLITUDE));
         }
 
         // 1. Try Accessibility Service (Allows Fingerprint/Face Unlock)
@@ -223,16 +255,14 @@ private final BroadcastReceiver updateReceiver = new BroadcastReceiver() {
     }
 
     private void createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel(
-                    CHANNEL_ID,
-                    "Screen Lock Button",
-                    NotificationManager.IMPORTANCE_LOW
-            );
-            channel.setDescription("Keeps the floating screen lock button running");
-            NotificationManager nm = getSystemService(NotificationManager.class);
-            if (nm != null) nm.createNotificationChannel(channel);
-        }
+        NotificationChannel channel = new NotificationChannel(
+                CHANNEL_ID,
+                "Screen Lock Button",
+                NotificationManager.IMPORTANCE_LOW
+        );
+        channel.setDescription("Keeps the floating screen lock button running");
+        NotificationManager nm = getSystemService(NotificationManager.class);
+        if (nm != null) nm.createNotificationChannel(channel);
     }
 
     private Notification buildNotification() {

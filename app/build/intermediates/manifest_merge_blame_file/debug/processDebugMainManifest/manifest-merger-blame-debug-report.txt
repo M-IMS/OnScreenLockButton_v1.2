@@ -12,160 +12,166 @@
 9-->INJECTED
 10
 11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-11-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:4:5-78
-11-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:4:22-75
+11-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:4:5-78
+11-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:4:22-75
 12    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-12-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:5:5-77
-12-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:5:22-74
+12-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:5:5-77
+12-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:5:22-74
 13    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-13-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:6:5-81
-13-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:6:22-78
+13-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:6:5-81
+13-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:6:22-78
 14    <uses-permission android:name="android.permission.BIND_DEVICE_ADMIN" />
-14-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:7:5-76
-14-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:7:22-73
+14-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:7:5-76
+14-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:7:22-73
 15    <uses-permission android:name="android.permission.VIBRATE" />
-15-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:8:5-66
-15-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:8:22-63
-16
-17    <permission
-17-->[androidx.core:core:1.12.0] /home/ims/.gradle/caches/9.4.1/transforms/ad37fdf77c94d1e041a14dff5a6e5fc8/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
-18        android:name="com.screenlock.floatbutton.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-18-->[androidx.core:core:1.12.0] /home/ims/.gradle/caches/9.4.1/transforms/ad37fdf77c94d1e041a14dff5a6e5fc8/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
-19        android:protectionLevel="signature" />
-19-->[androidx.core:core:1.12.0] /home/ims/.gradle/caches/9.4.1/transforms/ad37fdf77c94d1e041a14dff5a6e5fc8/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
-20
-21    <uses-permission android:name="com.screenlock.floatbutton.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-21-->[androidx.core:core:1.12.0] /home/ims/.gradle/caches/9.4.1/transforms/ad37fdf77c94d1e041a14dff5a6e5fc8/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
-21-->[androidx.core:core:1.12.0] /home/ims/.gradle/caches/9.4.1/transforms/ad37fdf77c94d1e041a14dff5a6e5fc8/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
-22
-23    <application
-23-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:10:5-64:19
-24        android:allowBackup="true"
-24-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:11:9-35
-25        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-25-->[androidx.core:core:1.12.0] /home/ims/.gradle/caches/9.4.1/transforms/ad37fdf77c94d1e041a14dff5a6e5fc8/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
-26        android:debuggable="true"
-27        android:extractNativeLibs="false"
-27-->INJECTED
-28        android:icon="@drawable/app_icon"
-28-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:12:9-42
-29        android:label="@string/app_name"
-29-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:13:9-41
-30        android:theme="@style/AppTheme" >
-30-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:14:9-40
-31        <activity
-31-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:16:9-24:20
-32            android:name="com.screenlock.floatbutton.MainActivity"
-32-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:17:13-41
-33            android:exported="true"
-33-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:18:13-36
-34            android:label="@string/app_name" >
-34-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:19:13-45
-35            <intent-filter>
-35-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:20:13-23:29
-36                <action android:name="android.intent.action.MAIN" />
-36-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:21:17-69
-36-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:21:25-66
-37
-38                <category android:name="android.intent.category.LAUNCHER" />
-38-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:22:17-77
-38-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:22:27-74
-39            </intent-filter>
-40        </activity>
-41
-42        <service
-42-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:26:9-28:40
-43            android:name="com.screenlock.floatbutton.FloatingButtonService"
-43-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:27:13-50
-44            android:exported="false" />
-44-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:28:13-37
-45
-46        <receiver
-46-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:30:9-40:20
-47            android:name="com.screenlock.floatbutton.AdminReceiver"
-47-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:31:13-42
-48            android:exported="true"
-48-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:32:13-36
-49            android:permission="android.permission.BIND_DEVICE_ADMIN" >
-49-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:33:13-70
-50            <meta-data
-50-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:34:13-36:56
-51                android:name="android.app.device_admin"
-51-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:35:17-56
-52                android:resource="@xml/device_admin" />
-52-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:36:17-53
-53
-54            <intent-filter>
-54-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:37:13-39:29
-55                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
-55-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:38:17-82
-55-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:38:25-79
-56            </intent-filter>
-57        </receiver>
-58        <receiver
-58-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:42:9-49:20
-59            android:name="com.screenlock.floatbutton.BootReceiver"
-59-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:43:13-41
-60            android:exported="true" >
-60-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:44:13-36
-61            <intent-filter>
-61-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:45:13-48:29
-62                <action android:name="android.intent.action.BOOT_COMPLETED" />
-62-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:46:17-79
-62-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:46:25-76
-63
-64                <category android:name="android.intent.category.DEFAULT" />
-64-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:47:17-76
-64-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:47:27-73
-65            </intent-filter>
-66        </receiver>
-67
-68        <service
-68-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:51:9-62:19
-69            android:name="com.screenlock.floatbutton.ScreenLockAccessibilityService"
-69-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:52:13-59
-70            android:exported="true"
-70-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:53:13-36
-71            android:label="Screen Lock Button Service"
-71-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:54:13-55
-72            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
-72-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:55:13-79
-73            <intent-filter>
-73-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:56:13-58:29
-74                <action android:name="android.accessibilityservice.AccessibilityService" />
-74-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:57:17-92
-74-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:57:25-89
-75            </intent-filter>
-76
-77            <meta-data
-77-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:59:13-61:72
-78                android:name="android.accessibilityservice"
-78-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:60:17-60
-79                android:resource="@xml/accessibility_service_config" />
-79-->/home/ims/Downloads/VSCODE/OnScreenLockButton_upd1/app/src/main/AndroidManifest.xml:61:17-69
-80        </service>
-81
-82        <provider
-82-->[androidx.emoji2:emoji2:1.2.0] /home/ims/.gradle/caches/9.4.1/transforms/3008c1dec793b78f78008fc30285ba20/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
-83            android:name="androidx.startup.InitializationProvider"
-83-->[androidx.emoji2:emoji2:1.2.0] /home/ims/.gradle/caches/9.4.1/transforms/3008c1dec793b78f78008fc30285ba20/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
-84            android:authorities="com.screenlock.floatbutton.androidx-startup"
-84-->[androidx.emoji2:emoji2:1.2.0] /home/ims/.gradle/caches/9.4.1/transforms/3008c1dec793b78f78008fc30285ba20/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
-85            android:exported="false" >
-85-->[androidx.emoji2:emoji2:1.2.0] /home/ims/.gradle/caches/9.4.1/transforms/3008c1dec793b78f78008fc30285ba20/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
-86            <meta-data
-86-->[androidx.emoji2:emoji2:1.2.0] /home/ims/.gradle/caches/9.4.1/transforms/3008c1dec793b78f78008fc30285ba20/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
-87                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-87-->[androidx.emoji2:emoji2:1.2.0] /home/ims/.gradle/caches/9.4.1/transforms/3008c1dec793b78f78008fc30285ba20/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
-88                android:value="androidx.startup" />
-88-->[androidx.emoji2:emoji2:1.2.0] /home/ims/.gradle/caches/9.4.1/transforms/3008c1dec793b78f78008fc30285ba20/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+15-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:8:5-66
+15-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:8:22-63
+16    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+16-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:9:5-89
+16-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:9:22-86
+17
+18    <permission
+18-->[androidx.core:core:1.12.0] /home/ims/.gradle/caches/9.7.1/transforms/7b7a6c846560d3f245c13ab3848a79c6/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+19        android:name="com.screenlock.floatbutton.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+19-->[androidx.core:core:1.12.0] /home/ims/.gradle/caches/9.7.1/transforms/7b7a6c846560d3f245c13ab3848a79c6/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+20        android:protectionLevel="signature" />
+20-->[androidx.core:core:1.12.0] /home/ims/.gradle/caches/9.7.1/transforms/7b7a6c846560d3f245c13ab3848a79c6/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
+21
+22    <uses-permission android:name="com.screenlock.floatbutton.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+22-->[androidx.core:core:1.12.0] /home/ims/.gradle/caches/9.7.1/transforms/7b7a6c846560d3f245c13ab3848a79c6/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+22-->[androidx.core:core:1.12.0] /home/ims/.gradle/caches/9.7.1/transforms/7b7a6c846560d3f245c13ab3848a79c6/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+23
+24    <application
+24-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:11:5-66:19
+25        android:allowBackup="true"
+25-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:12:9-35
+26        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+26-->[androidx.core:core:1.12.0] /home/ims/.gradle/caches/9.7.1/transforms/7b7a6c846560d3f245c13ab3848a79c6/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
+27        android:debuggable="true"
+28        android:extractNativeLibs="false"
+28-->INJECTED
+29        android:icon="@drawable/app_icon"
+29-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:13:9-42
+30        android:label="@string/app_name"
+30-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:14:9-41
+31        android:testOnly="true"
+32        android:theme="@style/AppTheme" >
+32-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:15:9-40
+33        <activity
+33-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:17:9-25:20
+34            android:name="com.screenlock.floatbutton.MainActivity"
+34-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:18:13-41
+35            android:exported="true"
+35-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:19:13-36
+36            android:label="@string/app_name" >
+36-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:20:13-45
+37            <intent-filter>
+37-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:21:13-24:29
+38                <action android:name="android.intent.action.MAIN" />
+38-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:22:17-69
+38-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:22:25-66
+39
+40                <category android:name="android.intent.category.LAUNCHER" />
+40-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:23:17-77
+40-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:23:27-74
+41            </intent-filter>
+42        </activity>
+43
+44        <service
+44-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:27:9-30:58
+45            android:name="com.screenlock.floatbutton.FloatingButtonService"
+45-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:28:13-50
+46            android:exported="false"
+46-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:29:13-37
+47            android:foregroundServiceType="specialUse" />
+47-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:30:13-55
+48
+49        <receiver
+49-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:32:9-42:20
+50            android:name="com.screenlock.floatbutton.AdminReceiver"
+50-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:33:13-42
+51            android:exported="true"
+51-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:34:13-36
+52            android:permission="android.permission.BIND_DEVICE_ADMIN" >
+52-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:35:13-70
+53            <meta-data
+53-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:36:13-38:56
+54                android:name="android.app.device_admin"
+54-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:37:17-56
+55                android:resource="@xml/device_admin" />
+55-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:38:17-53
+56
+57            <intent-filter>
+57-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:39:13-41:29
+58                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+58-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:40:17-82
+58-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:40:25-79
+59            </intent-filter>
+60        </receiver>
+61        <receiver
+61-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:44:9-51:20
+62            android:name="com.screenlock.floatbutton.BootReceiver"
+62-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:45:13-41
+63            android:exported="true" >
+63-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:46:13-36
+64            <intent-filter>
+64-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:47:13-50:29
+65                <action android:name="android.intent.action.BOOT_COMPLETED" />
+65-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:48:17-79
+65-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:48:25-76
+66
+67                <category android:name="android.intent.category.DEFAULT" />
+67-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:49:17-76
+67-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:49:27-73
+68            </intent-filter>
+69        </receiver>
+70
+71        <service
+71-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:53:9-64:19
+72            android:name="com.screenlock.floatbutton.ScreenLockAccessibilityService"
+72-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:54:13-59
+73            android:exported="true"
+73-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:55:13-36
+74            android:label="Screen Lock Button Service"
+74-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:56:13-55
+75            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE" >
+75-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:57:13-79
+76            <intent-filter>
+76-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:58:13-60:29
+77                <action android:name="android.accessibilityservice.AccessibilityService" />
+77-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:59:17-92
+77-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:59:25-89
+78            </intent-filter>
+79
+80            <meta-data
+80-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:61:13-63:72
+81                android:name="android.accessibilityservice"
+81-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:62:17-60
+82                android:resource="@xml/accessibility_service_config" />
+82-->/home/ims/Downloads/VSCODE/OnScreenLockButton_v1.2/app/src/main/AndroidManifest.xml:63:17-69
+83        </service>
+84
+85        <provider
+85-->[androidx.emoji2:emoji2:1.2.0] /home/ims/.gradle/caches/9.7.1/transforms/c200d64c265fab738f34a5da983b1c05/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+86            android:name="androidx.startup.InitializationProvider"
+86-->[androidx.emoji2:emoji2:1.2.0] /home/ims/.gradle/caches/9.7.1/transforms/c200d64c265fab738f34a5da983b1c05/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+87            android:authorities="com.screenlock.floatbutton.androidx-startup"
+87-->[androidx.emoji2:emoji2:1.2.0] /home/ims/.gradle/caches/9.7.1/transforms/c200d64c265fab738f34a5da983b1c05/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+88            android:exported="false" >
+88-->[androidx.emoji2:emoji2:1.2.0] /home/ims/.gradle/caches/9.7.1/transforms/c200d64c265fab738f34a5da983b1c05/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
 89            <meta-data
-89-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/ims/.gradle/caches/9.4.1/transforms/13a4448b498cafc5c1414987ae428051/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
-90                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-90-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/ims/.gradle/caches/9.4.1/transforms/13a4448b498cafc5c1414987ae428051/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+89-->[androidx.emoji2:emoji2:1.2.0] /home/ims/.gradle/caches/9.7.1/transforms/c200d64c265fab738f34a5da983b1c05/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+90                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+90-->[androidx.emoji2:emoji2:1.2.0] /home/ims/.gradle/caches/9.7.1/transforms/c200d64c265fab738f34a5da983b1c05/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
 91                android:value="androidx.startup" />
-91-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/ims/.gradle/caches/9.4.1/transforms/13a4448b498cafc5c1414987ae428051/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
-92        </provider>
-93    </application>
-94
-95</manifest>
+91-->[androidx.emoji2:emoji2:1.2.0] /home/ims/.gradle/caches/9.7.1/transforms/c200d64c265fab738f34a5da983b1c05/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+92            <meta-data
+92-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/ims/.gradle/caches/9.7.1/transforms/49d3fe87dd54687bf84237e80643a3d2/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+93                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+93-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/ims/.gradle/caches/9.7.1/transforms/49d3fe87dd54687bf84237e80643a3d2/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+94                android:value="androidx.startup" />
+94-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/ims/.gradle/caches/9.7.1/transforms/49d3fe87dd54687bf84237e80643a3d2/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+95        </provider>
+96    </application>
+97
+98</manifest>

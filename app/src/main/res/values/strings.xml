@@ -2,4 +2,23 @@
 <resources>
     <string name="app_name">Screen Lock Button</string>
     <string name="device_admin_description">Allows this app to lock your screen when you tap the floating button.</string>
+    <string name="header_title">Screen Lock</string>
+    <string name="status_inactive">○ Service Inactive</string>
+    <string name="section_permissions">Required Permissions</string>
+    <string name="btn_overlay">1. Grant Overlay</string>
+    <string name="btn_admin">2. Grant Device Admin</string>
+    <string name="btn_accessibility">3. Grant Accessibility</string>
+    <string name="section_appearance">Appearance</string>
+    <string name="label_size">Button Size</string>
+    <string name="label_color">Button Color</string>
+    <string name="label_transparency">Transparency</string>
+    <string name="label_icon">Icon Style</string>
+    <string name="btn_custom_icon">Pick from Gallery</string>
+    <string name="btn_start">START FLOATING BUTTON</string>
+    <string name="btn_stop">STOP FLOATING BUTTON</string>
+    <string name="status_active">● Floating button is ACTIVE</string>
+    <string name="btn_overlay_granted">✅ Overlay Permission Granted</string>
+    <string name="btn_admin_granted">✅ Admin Permission Granted</string>
+    <string name="btn_accessibility_granted">✅ Accessibility Granted (Smart Lock)</string>
+    <string name="btn_accessibility_hint">3. Grant Accessibility (Enable Fingerprint)</string>
 </resources>

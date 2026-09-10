@@ -21,13 +21,13 @@ A floating power/screen lock button for when your physical button is broken.
 1. Open terminal inside the `ScreenLockButton` folder
 2. Run: `./gradlew assembleDebug`
 3. APK will be at: `app/build/outputs/apk/debug/app-debug.apk`
-4. Transfer to your phone and install (enable "Install from unknown sources")
+4. Transfer to your phone and install (enable "Install unknown apps")
 
 ---
 
 ## FIRST-TIME SETUP (In the App)
 
-Once installed, open the app and follow these 3 steps:
+Once installed, open the app and follow these 4 steps:
 
 **Step 1 — Grant Overlay Permission**
 - Tap "Grant Overlay Permission"
@@ -39,7 +39,12 @@ Once installed, open the app and follow these 3 steps:
 - Read the prompt → tap "Activate"
 - This allows the button to lock your screen
 
-**Step 3 — Start the Button**
+**Step 3 — Grant Accessibility (Recommended)**
+- Tap "Grant Accessibility (Enable Fingerprint)"
+- Find "Screen Lock Button Service" in the list → toggle ON
+- This allows locking the screen **without** disabling your Fingerprint/Smart Lock
+
+**Step 4 — Start the Button**
 - Tap "START Floating Button"
 - A ⏻ floating button appears on your screen!
 
@@ -59,7 +64,7 @@ Once installed, open the app and follow these 3 steps:
 
 | Problem | Fix |
 |---|---|
-| Button doesn't lock screen | Re-grant Device Admin permission |
+| Button doesn't lock screen | Re-grant Device Admin or Accessibility permission |
 | Button disappears | Open app → tap START again |
 | Can't install APK | Settings → Apps → Special Access → Install Unknown Apps → enable for your browser/Files app |
 | "Overlay permission" not sticking | Go to Settings → Apps → Screen Lock Button → Permissions → Display over other apps → ON |
@@ -71,10 +76,12 @@ Once installed, open the app and follow these 3 steps:
 | Permission | Why Needed |
 |---|---|
 | `SYSTEM_ALERT_WINDOW` | To show the floating button on top of all apps |
-| `DEVICE_ADMIN` | To actually lock the screen (Android requirement) |
+| `DEVICE_ADMIN` | To lock the screen (Legacy method) |
+| `ACCESSIBILITY_SERVICE` | To lock the screen while keeping Fingerprint/Smart Lock working |
 | `FOREGROUND_SERVICE` | To keep the button running while you use other apps |
 | `RECEIVE_BOOT_COMPLETED` | To auto-start the button after phone restarts |
 
 ---
 
-Built specifically for Samsung Galaxy Note 9 (Exynos) running Android 8.0+
+Built specifically for Samsung Galaxy Note 9 (Exynos) running Android 8.0+.
+

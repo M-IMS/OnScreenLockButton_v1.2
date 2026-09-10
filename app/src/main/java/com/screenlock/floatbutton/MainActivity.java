@@ -6,9 +6,10 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,11 +17,15 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.ArrayAdapter;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+
+import java.util.Objects;
 
 public class MainActivity extends Activity {
 
     private static final int REQUEST_OVERLAY_PERMISSION = 1001;
     private static final int REQUEST_DEVICE_ADMIN = 1002;
+    private static final int REQUEST_PICK_IMAGE = 1003;
 
     private DevicePolicyManager devicePolicyManager;
     private ComponentName adminComponent;
@@ -48,6 +53,11 @@ public class MainActivity extends Activity {
             btnAccessibility.setOnClickListener(v -> requestAccessibilityPermission());
         }
 
+        Button btnPickIcon = findViewById(R.id.btnPickIcon);
+        if (btnPickIcon != null) {
+            btnPickIcon.setOnClickListener(v -> pickCustomIcon());
+        }
+
         btnToggle.setOnClickListener(v -> toggleFloatingButton());
 
         setupSettings();
@@ -70,10 +80,10 @@ public class MainActivity extends Activity {
         Button btnAdmin = findViewById(R.id.btnAdmin);
         Button btnAccessibility = findViewById(R.id.btnAccessibility);
 
-        btnOverlay.setText(overlayGranted ? "✅ Overlay Permission Granted" : "1. Grant Overlay Permission");
-        btnAdmin.setText(adminGranted ? "✅ Admin Permission Granted" : "2. Grant Device Admin");
+        btnOverlay.setText(overlayGranted ? getString(R.string.btn_overlay_granted) : getString(R.string.btn_overlay));
+        btnAdmin.setText(adminGranted ? getString(R.string.btn_admin_granted) : getString(R.string.btn_admin));
         if (btnAccessibility != null) {
-            btnAccessibility.setText(accessibilityGranted ? "✅ Accessibility Granted (Smart Lock)" : "3. Grant Accessibility (Enable Fingerprint)");
+            btnAccessibility.setText(accessibilityGranted ? getString(R.string.btn_accessibility_granted) : getString(R.string.btn_accessibility_hint));
         }
 
         // Allow starting if at least Overlay is granted and either Admin or Accessibility
@@ -81,11 +91,11 @@ public class MainActivity extends Activity {
         btnToggle.setEnabled(allGranted);
 
         if (serviceRunning) {
-            btnToggle.setText("STOP Floating Button");
-            tvStatus.setText("● Floating button is ACTIVE");
+            btnToggle.setText(R.string.btn_stop);
+            tvStatus.setText(R.string.status_active);
         } else {
-            btnToggle.setText("START Floating Button");
-            tvStatus.setText("○ Floating button is INACTIVE");
+            btnToggle.setText(R.string.btn_start);
+            tvStatus.setText(R.string.status_inactive);
         }
     }
 
@@ -95,25 +105,52 @@ private void setupSettings() {
     SeekBar size = findViewById(R.id.seekSize);
     SeekBar alpha = findViewById(R.id.seekTransparency);
     Spinner icon = findViewById(R.id.spinnerIcon);
+    ColorWheelView colorWheel = findViewById(R.id.colorWheel);
 
     size.setProgress(prefs.getInt("size",100)-50);
     alpha.setProgress(prefs.getInt("alpha",80)-10);
 
-    String[] icons = {" ","o","🔒","⚡","⬤","■"};
-    ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item, icons);
-    adapter.setDropDownViewResource(R.layout.spinner_item);
-    icon.setAdapter(adapter);
-    String saved = prefs.getString("icon","⬤");
-    for(int i=0;i<icons.length;i++){ if(icons[i].equals(saved)) icon.setSelection(i);}
+    String[] icons = {" ", "o", "🔒", "⚡", "⬤", "■", "Custom"};
+    ArrayAdapter<String> iconAdapter = new ArrayAdapter<>(this, R.layout.spinner_item, icons);
+    iconAdapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
+    icon.setAdapter(iconAdapter);
+    String savedIcon = prefs.getString("icon", "⬤");
+    if ("CUSTOM".equals(savedIcon)) savedIcon = "Custom";
+    for (int i = 0; i < icons.length; i++) {
+        if (Objects.equals(icons[i], savedIcon)) {
+            icon.setSelection(i);
+            break;
+        }
+    }
+
+    String savedColorStr = prefs.getString("color", "#00D4FF");
+    int savedColor = Color.parseColor(savedColorStr);
+    colorWheel.setSelectedColor(savedColor);
 
     size.setOnSeekBarChangeListener(new SimpleSeekBar("size",50));
     alpha.setOnSeekBarChangeListener(new SimpleSeekBar("alpha",10));
-    icon.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener() {
-        public void onItemSelected(android.widget.AdapterView<?> p, android.view.View v, int pos, long id) {
-            prefs.edit().putString("icon", icons[pos]).apply();
+    icon.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        public void onItemSelected(AdapterView<?> p, View v, int pos, long id) {
+            String selected = icons[pos];
+            if ("Custom".equals(selected)) {
+                prefs.edit().putString("icon", "CUSTOM").apply();
+            } else {
+                prefs.edit()
+                        .putString("icon", selected)
+                        .remove("custom_icon_uri")
+                        .apply();
+            }
             sendBroadcast(new Intent("UPDATE_FLOAT_BUTTON"));
         }
-        public void onNothingSelected(android.widget.AdapterView<?> p) {}
+        public void onNothingSelected(AdapterView<?> p) {}
+    });
+
+    colorWheel.setOnColorSelectedListener(colorInt -> {
+        String hexColor = String.format("#%06X", (0xFFFFFF & colorInt));
+        prefs.edit().putString("color", hexColor).apply();
+        // Use a lightweight broadcast or throttle updates if needed, 
+        // but direct trigger works smoothly if layout is light
+        sendBroadcast(new Intent("UPDATE_FLOAT_BUTTON"));
     });
 }
 
@@ -137,11 +174,13 @@ private class SimpleSeekBar implements SeekBar.OnSeekBarChangeListener {
             accessibilityEnabled = Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.ACCESSIBILITY_ENABLED);
         } catch (Settings.SettingNotFoundException ignored) {}
 
-        if (accessibilityEnabled == 1) {
-            String settingValue = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
-            if (settingValue != null) {
-                return settingValue.contains(service);
-            }
+        switch (accessibilityEnabled) {
+            case 1:
+                String settingValue = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
+                if (settingValue != null) {
+                    return settingValue.contains(service);
+                }
+                break;
         }
         return false;
     }
@@ -179,19 +218,38 @@ private class SimpleSeekBar implements SeekBar.OnSeekBarChangeListener {
         if (FloatingButtonService.isRunning) {
             stopService(serviceIntent);
         } else {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                startForegroundService(serviceIntent);
-            } else {
-                startService(serviceIntent);
-            }
+            startForegroundService(serviceIntent);
         }
         // Slight delay to let service update its state
         btnToggle.postDelayed(this::updateUI, 300);
     }
 
+    private void pickCustomIcon() {
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("image/*");
+        startActivityForResult(intent, REQUEST_PICK_IMAGE);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_PICK_IMAGE && resultCode == RESULT_OK && data != null) {
+            Uri uri = data.getData();
+            if (uri != null) {
+                try {
+                    getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    getSharedPreferences("float_settings", MODE_PRIVATE).edit()
+                            .putString("custom_icon_uri", uri.toString())
+                            .putString("icon", "CUSTOM") // Flag for service
+                            .apply();
+                    sendBroadcast(new Intent("UPDATE_FLOAT_BUTTON"));
+                    Toast.makeText(this, "Custom icon applied!", Toast.LENGTH_SHORT).show();
+                } catch (Exception e) {
+                    Toast.makeText(this, "Failed to get icon permission", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
         updateUI();
     }
 }
